@@ -15,7 +15,7 @@ function CreatePage() {
     if (activeTab > 1) {
       setActiveTab(activeTab - 1);
     } else {
-      window.location.href = "/";
+      window.location.href = "/FrontCloudCamp-test";
     }
   };
 
