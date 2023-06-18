@@ -5,7 +5,7 @@ import CreatePage from "../../pages/create-page";
 
 const router = createBrowserRouter(
     createRoutesFromElements(
-        <Route path="" element={<RootLayout/>}>
+        <Route path="FrontCloudCamp-test" element={<RootLayout/>}>
             <Route index element={<MainPage/>}/>
             <Route path="create" element={<CreatePage/>}/>
         </Route>
