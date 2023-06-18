@@ -1,0 +1,19 @@
+.selectContainer {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 72px;
+    margin-bottom: 24px;
+}
+
+.select {
+    margin-top: 8px;
+    padding: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.16);
+    border-radius: 4px;
+    font-family: 'SB Sans Interface', Arial, sans-serif;
+}
+
+.optionSelect {
+    padding: 12px 0;
+}

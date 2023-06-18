@@ -1,0 +1,49 @@
+.bar {
+    padding: 62px 0 67px 0;
+}
+.lines {
+    display: flex;
+    align-items: center;
+}
+
+.line {
+    width: 340px;
+    height: 8px;
+    background-color: rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+}
+
+.lineActive {
+    background-color: #5558FA;
+}
+
+.points {
+    width: 680px;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+}
+
+.onePoint {
+    width: 16px;
+    height: 16px;
+    background-color: #A6A6A6;
+    border-radius: 100%;
+}
+
+.onePointActive {
+    background-color: #5558FA;
+}
+
+.none {
+    display: none;
+}
+
+.numbers {
+    padding-top: 12px;
+    width: 680px;
+    display: flex;
+    justify-content: space-between;
+    color: #5558FA;
+    font-weight: 600;
+}

@@ -1,0 +1,24 @@
+.buttonContainer {
+    display: flex;
+    box-sizing: border-box;
+    justify-content: space-between;
+    width: 680px;
+    padding-top: 88px;
+}
+.buttonNext {
+    background-color: #5558FA;
+    border-radius: 4px;
+    padding: 12px 16px;
+    border: 2px solid #5558FA;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.buttonPrev {
+    background-color: #FFFFFF;
+    border: 2px solid #5558FA;
+    border-radius: 4px;
+    padding: 12px 16px;
+    color: #5558FA;
+    cursor: pointer;
+}
