@@ -1,11 +1,11 @@
 import React, { ChangeEvent, useState } from "react";
 import Tab from "../../tab";
-import styles from "../../../pages/create-page/index.module.css";
 import InputBar from "../../input-bar";
 import { useAppDispatch } from "../../../store/personal-name";
 import { setName } from "../../../store/personal-name/personal-name-slice";
 import { useFormik } from "formik";
-import { userSchema } from "../tab-content-name/Validations/name-validations";
+import {advantageSchema} from "./validations/advantage-validations";
+import styles from "./index.module.css"
 
 function TabContentAdvantages() {
   const dispatch = useAppDispatch();
@@ -32,7 +32,7 @@ function TabContentAdvantages() {
       initialValues: {
         advantages: [],
       },
-      validationSchema: userSchema,
+      validationSchema: advantageSchema,
       onSubmit,
     });
 
@@ -43,14 +43,12 @@ function TabContentAdvantages() {
   };
 
   const handleRemoveAdvantages = (index: number) => {
-    console.log("index", index);
     const updatedAdvantages = advantages.filter((_, i) => i !== index);
     setFieldValue("advantages", updatedAdvantages);
   };
 
   const handleAdvantagesChange = (index: number, value: string) => {
-    const updatedAdvantages = [...advantages];
-    // @ts-ignore
+    const updatedAdvantages: string[] = [...advantages];
     updatedAdvantages[index] = value;
     setFieldValue("advantages", updatedAdvantages);
   };
@@ -58,8 +56,9 @@ function TabContentAdvantages() {
   return (
     <form onSubmit={handleSubmit} autoComplete="off">
       <div className={styles.createContainer}>
+        <label className={styles.label}>Advantages</label>
         {advantages.map((advantage, index) => (
-          <div key={index}>
+          <div key={index} className={styles.input}>
             <InputBar
               id={`advantage-${index}`}
               type="text"
@@ -74,6 +73,7 @@ function TabContentAdvantages() {
             {index >= 0 && (
               <button
                 type="button"
+                className={styles.buttonRemove}
                 onClick={() => handleRemoveAdvantages(index)}
               >
                 <svg
@@ -97,7 +97,7 @@ function TabContentAdvantages() {
           </div>
         ))}
         <div>
-          <button type="button" onClick={handleAddAdvantages}>
+          <button type="button" onClick={handleAddAdvantages} className={styles.buttonCreate}>
             <svg
               width="12"
               height="12"

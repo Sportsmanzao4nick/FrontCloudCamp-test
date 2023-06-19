@@ -30,14 +30,14 @@ function CreatePage() {
           className={styles.buttonPrev}
           onClick={handlePrev}
         >
-          Пред
+          Назад
         </button>
         <button
           type="button"
           className={styles.buttonNext}
           onClick={handleNext}
         >
-          След
+          Далее
         </button>
       </div>
     </div>
