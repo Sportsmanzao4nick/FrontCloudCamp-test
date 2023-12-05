@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { MouseEvent } from "react";
 import InputBar from "../../components/input-bar";
 import PersonalInfo from "../../components/personal-info";
 import { NavLink } from "react-router-dom";
@@ -13,25 +13,28 @@ import styles from "./index.module.css";
 function MainPage() {
   const dispatch = useAppDispatch();
 
-  const onSubmit = () => {
-    const data = {
-      phone,
-      mail,
-    };
-    dispatch(setPhone(data));
-  };
-
   const { values, errors, handleChange, handleSubmit } = useFormik({
     initialValues: {
       phone: "",
-      mail: "",
+      mail: ""
     },
     validationSchema: mainSchema,
-    onSubmit,
+    onSubmit: () => {
+      const data: MainTypes = {
+        phone: values.phone,
+        mail: values.mail
+      };
+      dispatch(setPhone(data));
+    }
   });
 
-  const { phone, mail } = values;
-  console.log(values);
+  const handleStart = (event: MouseEvent<HTMLButtonElement>) => {
+    if (errors.phone || errors.mail || !values.phone || !values.mail) {
+      event.preventDefault();
+    } else {
+      handleSubmit();
+    }
+  };
 
   return (
     <div className={styles.mainContainer}>
@@ -40,9 +43,9 @@ function MainPage() {
         lastName="Лучко"
         linkTg="https://t.me/Sportsmanzao4nick"
         linkGit="https://github.com/Sportsmanzao4nick"
-        linkCv="https://drive.google.com/file/d/1nNJQFPAtggLB1hWJWDOLYlTV0tl1smst/view?usp=sharing"
+        linkCv="https://drive.google.com/file/d/1Sw1tr37WC2AsOLQV0pl15YdVfR6hNJPi/view?usp=sharing"
       />
-      <form onSubmit={handleSubmit} autoComplete="off">
+      <form autoComplete="off">
         <div className={styles.inputsContainer}>
           <PhoneMask
             id="phone"
@@ -51,13 +54,13 @@ function MainPage() {
             onChange={handleChange}
             value={values.phone}
             error={errors.phone}
-            placeholder="+7 (961) 574-88-79"
+            placeholder="+7 (999) 999-99-99"
           />
           <InputBar
             id="mail"
             label="Email"
             type="email"
-            placeholder="serojaluchko@gmail.com"
+            placeholder="serojaluchko@mail.ru"
             value={values.mail}
             onChange={handleChange}
             backgroundColor="grey"
@@ -65,7 +68,7 @@ function MainPage() {
           />
         </div>
         <NavLink to="create" type="submit">
-          <button type="button" onClick={onSubmit} className={styles.buttonStart}>
+          <button type="submit" onClick={handleStart} className={styles.buttonStart}>
             Начать
           </button>
         </NavLink>

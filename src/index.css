@@ -13,28 +13,28 @@ body {
 
 @font-face {
   font-family: 'SB Sans Display';
-  src: url('./fonts/SBSansDisplayRegular.woff2') format('woff2');
+  src: url('assets/fonts/SBSansDisplayRegular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
     font-family: 'SB Sans Display';
-    src: url('./fonts/SBSansDisplaySemiBold.woff2') format('woff2');
+    src: url('assets/fonts/SBSansDisplaySemiBold.woff2') format('woff2');
     font-weight: 700;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'SB Sans Interface';
-    src: url('./fonts/SBSansInterface-Regular.woff2') format('woff2');
+    src: url('assets/fonts/SBSansInterface-Regular.woff2') format('woff2');
     font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'SB Sans Interface';
-    src: url('./fonts/SBSansInterface-Semibold.woff2') format('woff2');
+    src: url('assets/fonts/SBSansInterface-Semibold.woff2') format('woff2');
     font-weight: 600;
     font-style: normal;
 }

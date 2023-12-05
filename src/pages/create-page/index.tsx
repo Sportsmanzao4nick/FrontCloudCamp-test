@@ -5,43 +5,51 @@ import ProgressBar from "../../components/progress-bar";
 import styles from "./index.module.css";
 
 function CreatePage() {
-  const [activeTab, setActiveTab] = useState<number>(1);
+  const [step, setStep] = useState<number>(1);
 
   const handleNext = () => {
-    setActiveTab(activeTab + 1);
+    setStep(step + 1);
   };
 
   const handlePrev = () => {
-    if (activeTab > 1) {
-      setActiveTab(activeTab - 1);
+    if (step > 1) {
+      setStep(step - 1);
     } else {
       window.location.href = "/FrontCloudCamp-test";
     }
   };
 
-  return (
-    <div>
-      <ProgressBar progress={activeTab} />
-      {activeTab === 1 && <TabContentName />}
-      {activeTab === 2 && <TabContentAdvantages />}
-      <div className={styles.buttonContainer}>
-        <button
-          type="button"
-          className={styles.buttonPrev}
-          onClick={handlePrev}
-        >
-          Назад
-        </button>
-        <button
-          type="button"
-          className={styles.buttonNext}
-          onClick={handleNext}
-        >
-          Далее
-        </button>
-      </div>
+  function activeTab(step: number) {
+    switch (step) {
+      case 2:
+        return <TabContentAdvantages />;
+      default :
+        return <TabContentName />;
+    }
+  }
+
+return (
+  <div>
+    <ProgressBar progress={step} />
+    {activeTab(step)}
+    <div className={styles.buttonContainer}>
+      <button
+        type="button"
+        className={styles.buttonPrev}
+        onClick={handlePrev}
+      >
+        Назад
+      </button>
+      <button
+        type="button"
+        className={styles.buttonNext}
+        onClick={handleNext}
+      >
+        Далее
+      </button>
     </div>
-  );
+  </div>
+);
 }
 
 export default CreatePage;

@@ -20,7 +20,7 @@ function PhoneMask({ id, label, onChange, error }: MaskTypes) {
         mask="+7 (999) 999-99-99"
         value={inputValue}
         onChange={handleChange}
-        placeholder="+7 (961) 574-88-79"
+        placeholder="+7 (999) 999-99-99"
       />
       {error && <div className={styles.error}>{error}</div>}
     </div>
